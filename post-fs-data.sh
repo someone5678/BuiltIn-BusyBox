@@ -7,15 +7,6 @@
 # Module's own path (local path)
 MODDIR=${0%/*}
 
-# Log file for debugging
-LogFile="$MODDIR/post-fs-data.log"
-exec 2>$LogFile 1>&2
-set -x
-
-# Log Magisk version and magisk --path
-magisk -c
-magisk --path
-
 # Clean-up old stuff
 rm -rf "$MODDIR/system"
 
@@ -27,15 +18,17 @@ then
 fi
 BBDIR=$MODDIR$SDIR
 mkdir -p $BBDIR
+chmod 751 $BBDIR
+chown -R :shell $BBDIR
 cd $BBDIR
 pwd
 
 # ToyBox-Ext path
 TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
 								   
-# Magisk built-in BusyBox
+# KernelSU built-in BusyBox
 BB=busybox
-BBBIN=/data/adb/magisk/$BB
+BBBIN=/data/adb/ksu/bin/$BB
 
 # List BusyBox applets
 $BBBIN --list | wc -l
@@ -58,7 +51,4 @@ do
     fi
   fi
 done
-
-# Log results
-ls -l $BB
-ls | wc -l
+ln -s $BBBIN $BB
