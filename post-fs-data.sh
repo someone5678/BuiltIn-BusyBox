@@ -13,7 +13,7 @@ XBINDIR=/system/xbin
 
 # Local XBIN and (or) BIN paths for mounting
 BBXBINDIR=$MODDIR$XBINDIR
-BBBINDIR=$MODDIR/system/bin
+BBBINDIR=$MODDIR$BINDIR
 
 # Use local XBIN path if System XBIN path exists, otherwise use local BIN path
 if [ -d $XBINDIR ]
@@ -29,14 +29,16 @@ rm -rf $BBBINDIR
 
 # busybox binary
 BBBIN=busybox
-MAGISKBBBIN=/data/adb/magisk/$BBBIN
+KSUBBBIN=/data/adb/ksu/bin/$BBBIN
 
 # List provided applets
-Applets=$($MAGISKBBBIN --list)
+Applets=$($KSUBBBIN --list)
 Applets="$Applets"$'\n'"$BBBIN"
 
 # Create local symlinks for busybox applets
 mkdir -p $BBDIR
+chmod 751 $BBDIR
+chown -R :shell $BBDIR
 cd $BBDIR
 for Applet in $Applets
 do
@@ -45,6 +47,7 @@ do
   if [ -z "$Check" ]
   then
 	# Create symlink
-    ln -s $MAGISKBBBIN $Applet
+    ln -s $KSUBBBIN $Applet
   fi
+  ln -s $KSUBBBIN $BBBIN
 done

@@ -1,13 +1,10 @@
-# Magisk built-in BusyBox
+# KernelSU built-in BusyBox
 
 ### Description
-Systemless Magisk module to install **BusyBox** binary with its applets (**UNIX/Linux command-line utilities**).
+Systemless KernelSU module to install **BusyBox** binary with its applets (**UNIX/Linux command-line utilities**).
 BusyBox and applets are installed by and symlinked to the Magisk built-in busybox binary.
 For more info, see:
 https://github.com/topjohnwu/ndk-busybox
-
-**Tip**: For even more interesting applets, install also the **ToyBox-Ext** module:
-https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext
 
 ##### TEST
 
@@ -41,7 +38,7 @@ busybox whois --help
 
 #### Source 
 
-[My Repo:](https://github.com/zgfg/BuiltIn-BusyBox)
+[zgfg's Repo:](https://github.com/zgfg/BuiltIn-BusyBox)
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/zgfg/BuiltIn-BusyBox?label=Release&style=plastic) ![GitHub Release Date](https://img.shields.io/github/release-date/zgfg/BuiltIn-BusyBox?label=Release%20Date&style=plastic) 
 ![GitHub Releases](https://img.shields.io/github/downloads/zgfg/BuiltIn-BusyBox/latest/total?label=Downloads%20%28Latest%20Release%29&style=plastic)

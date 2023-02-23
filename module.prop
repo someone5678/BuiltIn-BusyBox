@@ -1,7 +1,6 @@
 id=BuiltIn-BusyBox
-name=Magisk built-in BusyBox
+name=KernelSU built-in BusyBox
 version=1.0.4
 versionCode=104
-author=zgfg @ xda
-description=Systemless BusyBox installed by and symlinked to the Magisk built-in busybox binary
-updateJson=https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/main/update.json
+author=zgfg @ xda, someone5678
+description=Systemless BusyBox installed by and symlinked to the KernelSU built-in busybox binary
